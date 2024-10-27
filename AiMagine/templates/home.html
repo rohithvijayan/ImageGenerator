@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href=" {% static 'css/style.css' %} ">
+    </head>
+    <body>
+    <div class="container">
+        <div class="hero">
+            <img src=" {% static 'images/bg.jpg' %} " alt="">
+            <section id="title-box">
+                <h1 id="title">AI Image Generator</h1>
+                <h3 id="title-tag">Generate HD Images Within Seconds Using AI !</h3>
+            </section>  
+            <br>
+            <section id="input">
+                <form action="{% url 'home' %}" method="POST">
+                    {% csrf_token %}  <!-- This line is required for Django's form security -->
+                    <label for="promptholder" id="prompt-label">Tell Us Want You Want </label><br>
+                     <input  type="text" class="promptholder" id="promptholder" placeholder="Enter Your Imagination :" name="prompt">
+                     <br>
+                     <br>
+                     <button id="generate-btn" type="submit">Generate ⚡</button>
+                    </form>
+            </section>
+        </div>
+        <br>
+        <div class="generated-container">
+            <div class="genimg">
+                <img src=" {% static 'images/1.jpeg' %} " alt="">
+            </div>
+            <br>
+            <div class="genimg">
+                <img src=" {% static 'images/2.jpeg' %} " alt="">
+
+            </div>
+            <br>
+            <div class="genimg">
+                <img src=" {% static 'images/3.jpeg' %} " alt="">
+
+            </div>
+            <br>
+            <div class="genimg">
+                <img src=" {% static 'images/4.jpeg' %} " alt="">
+
+            </div>
+            <br>
+        </div>
+    </div>
+    <footer>
+    &copy; 2023 My Website. All rights reserved.
+    </footer>
+        <script src=" {% static 'js/script.js' %} " async defer></script>
+    </body>
+</html>
